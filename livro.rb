@@ -6,14 +6,15 @@ class Livro
 		@ano_lancamento = ano_lancamento
 	end
 end
+livro_rails = Livro.new("Agile develpment with rails", 70, 2011)
+livro_ruby = Livro.new("Programming Ruby 1.9", 60,2010)
 
-def livro_para_newletter(livro)
-	if livro.ano_lancamento < 1999
-		puts "Newsletter/liquidacao"
-		puts livro.titulo
-		puts livro.preco
+def imprime_nota_fiscal(livros)
+	livros.each do | livro |
+		puts "Titulo #{livro.titulo} - #{livro.preco}"
 	end
 end
 
-algoritmos = Livro.new("Algorimos", 100, 1992)
-livro_para_newletter(algoritmos)
+livros = [livro_ruby,livro_rails]
+imprime_nota_fiscal(livros)
+
