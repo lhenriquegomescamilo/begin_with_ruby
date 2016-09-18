@@ -4,6 +4,14 @@ class Livro
 		@titulo = titulo
 		@preco = preco
 		@ano_lancamento = ano_lancamento
+		@preco = calcula_preco(preco)
+	end
+	def calcula_preco(base) 
+		if @ano_lancamento < 2000
+			base * 0.7
+		else
+			base
+		end
 	end
 end
 livro_rails = Livro.new("Agile develpment with rails", 70, 2011)
